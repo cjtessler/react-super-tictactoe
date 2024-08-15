@@ -88,3 +88,13 @@ body {
 .game-info {
   margin-left: 20px;
 }
+
+.super-game-boards {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);  
+}
+
+.super-game-boards > .game-board {
+  aspect-ratio: 1;;
+}
