@@ -28,7 +28,6 @@ function SuperBoard({ board, activeBoard, squares, handleClick }) {
       </div>
     </div>
   )
-
 }
 
 export default function Board() {
@@ -39,11 +38,18 @@ export default function Board() {
   function handleClick(b, i) {
     console.log(`clicked ${(b, i)}`);
 
+    // Prevent move in inactive board
     if (b != activeBoard) {
       return;
     }
 
-    if (calculateWinner(squares[b]) || squares[b][i]) {
+    // Prevent move in occupied space
+    if (squares[b][i]) {
+      return;
+    }
+
+    // Prevent move in won board
+    if (calculateWinner(squares[b])) {
       return;
     }
 
